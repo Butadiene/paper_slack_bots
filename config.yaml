@@ -1,0 +1,20 @@
+# 何日前の記事を取得するか（RSS / arXiv 共通、単一日）
+# days_back: 遡る日数 (テンプレート)
+days_back: 5
+
+# 各ワークスペースごとの設定
+workspaces:
+  - name: default  # テンプレート用のワークスペース名
+    arxiv:
+      slack_channel_id: YOUR_ARXIV_CHANNEL_ID  # Slack チャンネルID
+      categories:
+        - your.category1  # 例: astro-ph.EP
+      keywords:
+        - keyword1  # フィルタリング用キーワード
+    journals:
+      - title: Example Journal  # ジャーナル名
+        rss_url: https://example.com/rss  # RSSフィードURL
+        link_tag: link  # entry の link タグ
+        abstract_tag: content  # entry の抄録タグ (content or summary)
+        slack_channel_id: YOUR_JOURNAL_CHANNEL_ID  # Slack チャンネルID
+  # 追加ワークスペースの設定をここに記述してください
