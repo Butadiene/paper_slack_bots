@@ -57,19 +57,18 @@ days_back: 5
 workspaces:
   - name: default          # secrets.yaml のキーに対応
     arxiv:
-      slack_channel_id: C020HPN7Z5M
+      slack_channel_id: YOUR_CHANNEL_ID
       categories:
         - astro-ph.EP
         - physics.space-ph
       keywords:
         - Alfven
-        - ULF
     journals:
       - title: Journal-geophysical-space-physics
         rss_url: https://agupubs.onlinelibrary.wiley.com/action/showFeed?jc=21699402&type=etoc&feed=rss
         link_tag: link
         abstract_tag: content
-        slack_channel_id: C054WRABX7A
+        slack_channel_id: YOUR_JOURNAL_CHANNEL_ID
 
   - name: other_workspace   # 必要に応じて追加
     arxiv:
