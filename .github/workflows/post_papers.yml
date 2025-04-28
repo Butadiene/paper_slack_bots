@@ -34,8 +34,8 @@ jobs:
 
           # ワークスペースごとの Slack トークン
           slack_api_tokens:
-            default: "${{ secrets.SLACK_API_TOKEN_STPP }}"
-            other_workspace: "${{ secrets.SLACK_API_TOKEN_SOLAR }}"
+            default: "${{ secrets.SLACK_API_TOKEN }}"
+            other_workspace: "${{ secrets.SLACK_API_TOKEN_OTHER }}"
           YAML
 
       - name: 🚀 スクリプト実行
