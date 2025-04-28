@@ -3,13 +3,12 @@
 -->
 # Slack ArXiv & RSS 通知ボット
 
-このボットは新しい arXiv 投稿と RSS ジャーナルフィードを取得し、OpenAI で要約、DeepL で翻訳して Slack チャンネルに通知を投稿します。複数の Slack ワークスペースをサポートし、arXiv カテゴリ、キーワード、RSS ジャーナルをワークスペースごとに設定できます。
+このボットは新しい arXiv 投稿と RSS ジャーナルフィードを取得し、OpenAI で要約してSlack チャンネルに通知を投稿します。複数の Slack ワークスペースをサポートし、arXiv カテゴリ、キーワード、RSS ジャーナルをワークスペースごとに設定できます。
 
 ## 特徴
 - 複数ワークスペース対応
 - 設定可能な arXiv カテゴリ & キーワード
 - 設定可能な RSS ジャーナルフィード
-- 日本語翻訳（DeepL）
 - 要約（OpenAI）
 - 古いボットメッセージの自動削除（120～140 日）
 - `days_back` に基づくスケジュール取得
@@ -17,7 +16,6 @@
 ## 要件
 - Python 3.10 以上（3.11 でテスト済み）
 - Git
-- DeepL API キー
 - OpenAI API キー（使用するモデルへのアクセス権が必要）
 - 各ワークスペース用の Slack ボットトークン
   
@@ -88,7 +86,6 @@ workspaces:
 `secrets_template.yaml` を `secrets.yaml` としてコピーし、以下を設定します:
 
 ```yaml
-deepl_api_key: "<your-deepl-api-key>"
 openai_api_key: "<your-openai-api-key>"
 openai_model:  "gpt-4o-mini"
 
@@ -142,7 +139,6 @@ python main.py
 GitHub Actions では、リポジトリシークレットを環境変数として利用します（`${{ secrets.<NAME> }}`）。
 リポジトリの **Settings > Secrets > Actions** で以下を設定してください:
 
-- `DEEPL_API_KEY`: DeepL API キー
 - `OPENAI_API_KEY`: OpenAI API キー
 - `SLACK_API_TOKEN_<ワークスペース名>`: `config.yaml` で定義した各ワークスペースの Slack Bot トークン。 `<ワークスペース名>` は `config.yaml` の `name` フィールドに合わせてください。
 - 追加のワークスペースを `config.yaml` に定義した場合は、対応するシークレットを追加し、`.github/workflows/post_papers.yml` 内の `slack_api_tokens` マッピングを更新してください。

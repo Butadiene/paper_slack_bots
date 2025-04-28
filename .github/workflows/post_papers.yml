@@ -29,7 +29,6 @@ jobs:
       - name: 🔐 secrets.yaml を生成
         run: |
           cat <<'YAML' > secrets.yaml
-          deepl_api_key: "${{ secrets.DEEPL_API_KEY }}"
           openai_api_key: "${{ secrets.OPENAI_API_KEY }}"
           openai_model: "gpt-4o-mini"
 

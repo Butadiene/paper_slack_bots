@@ -4,15 +4,13 @@
 # Slack ArXiv & RSS Notification Bot
 [日本語版 README](README.ja.md)
 
-This bot fetches new arXiv submissions and RSS journal feeds, summarizes abstracts via OpenAI,
-translates via DeepL, and posts notifications to Slack channels. It supports multiple Slack
+This bot fetches new arXiv submissions and RSS journal feeds, summarizes abstracts via OpenAI and posts notifications to Slack channels. It supports multiple Slack
 workspaces with independent configurations for arXiv categories, keywords, and RSS journals.
 
 ## Features
 - Multi-workspace support
 - Configurable arXiv categories & keywords
 - Configurable RSS journal feeds
-- Japanese translation (DeepL)
 - Abstract summarization (OpenAI)
 - Automatic pruning of old bot messages (120–140 days old)
 - Scheduled fetch based on `days_back`
@@ -20,7 +18,6 @@ workspaces with independent configurations for arXiv categories, keywords, and R
 ## Requirements
 - Python 3.10+ (tested on 3.11)
 - Git
-- A DeepL API key
 - An OpenAI API key (with access to your chosen model)
 - Slack bot tokens for each workspace
   
@@ -92,7 +89,6 @@ workspaces:
 Copy `secrets_template.yaml` to `secrets.yaml` and fill in:
 
 ```yaml
-deepl_api_key: "<your-deepl-api-key>"
 openai_api_key: "<your-openai-api-key>"
 openai_model:  "gpt-4o-mini"
 
@@ -146,7 +142,6 @@ Workflow Details:
 The workflow uses GitHub repository secrets as environment variables (accessible in Actions via `${{ secrets.<NAME> }}`).
 Configure them in your repository settings under **Settings > Secrets > Actions**:
 
-- `DEEPL_API_KEY`: Your DeepL API key.
 - `OPENAI_API_KEY`: Your OpenAI API key.
 - `SLACK_API_TOKEN_<WORKSPACE_NAME>`: Slack Bot User OAuth Token for each workspace defined in `config.yaml`. Replace `<WORKSPACE_NAME>` with the `name` field.
 - For additional workspaces, add matching secrets and update the `slack_api_tokens` mapping in `.github/workflows/post_papers.yml`.
