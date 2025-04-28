@@ -6,15 +6,29 @@ days_back: 5
 workspaces:
   - name: default  # テンプレート用のワークスペース名
     arxiv:
-      slack_channel_id: YOUR_ARXIV_CHANNEL_ID  # Slack チャンネルID
+      slack_channel_id: C08PHSFHXJB  # Slack チャンネルID
       categories:
-        - your.category1  # 例: astro-ph.EP
+        - astro-ph.EP
+        - physics.space-ph
+        - physics.plasm-ph
       keywords:
-        - keyword1  # フィルタリング用キーワード
+        - Alfvén
+        - aurora
+        - MHD
+        - accretion disks
+        - Moon
+        - Jupiter
+        - Mercury
+        - Solar
     journals:
-      - title: Example Journal  # ジャーナル名
-        rss_url: https://example.com/rss  # RSSフィードURL
-        link_tag: link  # entry の link タグ
-        abstract_tag: content  # entry の抄録タグ (content or summary)
-        slack_channel_id: YOUR_JOURNAL_CHANNEL_ID  # Slack チャンネルID
+      - title: Journal-geophysical-space-physics
+        rss_url: https://agupubs.onlinelibrary.wiley.com/action/showFeed?jc=21699402&type=etoc&feed=rss
+        link_tag: link
+        abstract_tag: content
+        slack_channel_id: C08PHSFHXJB
+      - title: Astrophysical-journal
+        rss_url: https://iopscience.iop.org/journal/rss/0004-637X
+        link_tag: link
+        abstract_tag: summary
+        slack_channel_id: C08PHSFHXJB
   # 追加ワークスペースの設定をここに記述してください
