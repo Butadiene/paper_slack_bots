@@ -5,6 +5,12 @@
 
 このボットは新しい arXiv 投稿と RSS ジャーナルフィードを取得し、OpenAI で要約してSlack チャンネルに通知を投稿します。複数の Slack ワークスペースをサポートし、arXiv カテゴリ、キーワード、RSS ジャーナルをワークスペースごとに設定できます。
 
+※現在ScienceDirect等一部のジャーナルのRSSフィードに対応していません。
+
+[簡易導入マニュアル](https://docs.google.com/document/d/1iHChjdGiWhOsS5HZRX7Jje80FURv5cOS/edit?usp=sharing&ouid=100239657289898594543&rtpof=true&sd=true)
+
+まずはこのマニュアルから始めてみてください。
+
 ## 特徴
 - 複数ワークスペース対応
 - 設定可能な arXiv カテゴリ & キーワード
