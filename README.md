@@ -143,5 +143,6 @@ The workflow uses GitHub repository secrets as environment variables (accessible
 Configure them in your repository settings under **Settings > Secrets > Actions**:
 
 - `OPENAI_API_KEY`: Your OpenAI API key.
-- `SLACK_API_TOKEN_<WORKSPACE_NAME>`: Slack Bot User OAuth Token for each workspace defined in `config.yaml`. Replace `<WORKSPACE_NAME>` with the `name` field.
+- `SLACK_API_TOKEN`: Slack Bot User OAuth Token for each workspace defined in `config.yaml`.
 - For additional workspaces, add matching secrets and update the `slack_api_tokens` mapping in `.github/workflows/post_papers.yml`.
+- Please refer to `other_workspace`
