@@ -140,5 +140,6 @@ GitHub Actions では、リポジトリシークレットを環境変数とし�
 リポジトリの **Settings > Secrets > Actions** で以下を設定してください:
 
 - `OPENAI_API_KEY`: OpenAI API キー
-- `SLACK_API_TOKEN_<ワークスペース名>`: `config.yaml` で定義した各ワークスペースの Slack Bot トークン。 `<ワークスペース名>` は `config.yaml` の `name` フィールドに合わせてください。
+- `SLACK_API_TOKEN`: `config.yaml` で定義した各ワークスペースの Slack Bot トークン。 
 - 追加のワークスペースを `config.yaml` に定義した場合は、対応するシークレットを追加し、`.github/workflows/post_papers.yml` 内の `slack_api_tokens` マッピングを更新してください。
+- other_workspaceを参考にしてください。
