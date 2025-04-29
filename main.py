@@ -121,22 +121,34 @@ def fetch_and_post_rss(client: WebClient, bot_user_id: str, bot_id: str,
     for journal in journals:
         feed = feedparser.parse(journal["rss_url"])
         for entry in feed.entries:
-            try:
-                pub_dt = dt.datetime.fromtimestamp(
-                    time.mktime(entry.updated_parsed), tz=TZ_TOKYO
-                )
-            except Exception:
-                continue
-            if pub_dt.date() != target_date:
+            # --- 1) 日付の取り出し ---
+            pub_dt = None
+            if hasattr(entry, "published_parsed") and entry.published_parsed:
+                pub_dt = dt.datetime.fromtimestamp(time.mktime(entry.published_parsed), tz=TZ_TOKYO)
+            elif hasattr(entry, "updated_parsed") and entry.updated_parsed:
+                pub_dt = dt.datetime.fromtimestamp(time.mktime(entry.updated_parsed), tz=TZ_TOKYO)
+            else:
+                # ScienceDirect の場合は description から "Publication date:" を抜く
+                m = re.search(r"Publication date:\s*(\d+\s+\w+\s+\d{4})", entry.description)
+                if m:
+                    pub_dt = dt.datetime.strptime(m.group(1), "%d %B %Y").replace(tzinfo=TZ_TOKYO)
+    
+            if not pub_dt or pub_dt.date() != target_date:
                 continue
 
             title = entry.title
             link = entry.link
+            
             abstract_en = (
                 entry.content[0].value
                 if journal["abstract_tag"] == "content"
                 else entry.summary
             ).replace("\n", " ")
+
+            if journal["abstract_tag"] == "description":
+                abstract_en = re.sub(r"<\/?[^>]+>", "", entry.description)  # HTML タグを落とす
+            else:
+                abstract_en = entry.content[0].value
 
             summary = summarize(title, abstract_en)
 
