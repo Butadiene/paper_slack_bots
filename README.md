@@ -7,6 +7,12 @@
 This bot fetches new arXiv submissions and RSS journal feeds, summarizes abstracts via OpenAI and posts notifications to Slack channels. It supports multiple Slack
 workspaces with independent configurations for arXiv categories, keywords, and RSS journals.
 
+※RSS feeds for some journals, such as ScienceDirect, are currently not supported.
+
+[簡易導入マニュアル](https://docs.google.com/document/d/1iHChjdGiWhOsS5HZRX7Jje80FURv5cOS/edit?usp=sharing&ouid=100239657289898594543&rtpof=true&sd=true)
+
+まずはこのマニュアルから始めてみてください。
+
 ## Features
 - Multi-workspace support
 - Configurable arXiv categories & keywords
