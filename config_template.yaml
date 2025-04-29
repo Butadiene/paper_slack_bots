@@ -1,0 +1,28 @@
+workspaces:
+  - name: default  # テンプレート用のワークスペース名
+    arxiv:
+      slack_channel_id:   # Slack チャンネルID
+      categories:
+        - astro-ph.EP
+        - physics.space-ph
+        - physics.plasm-ph
+      keywords:
+        - Alfvén
+        - aurora
+        - MHD
+        - accretion disks
+        - Moon
+        - Jupiter
+        - Mercury
+        - Solar
+    journals:
+      - title: Journal-geophysical-space-physics
+        rss_url: https://agupubs.onlinelibrary.wiley.com/action/showFeed?jc=21699402&type=etoc&feed=rss
+        link_tag: link
+        abstract_tag: content
+        slack_channel_id: C08PHSFHXJB
+      - title: Astrophysical-journal
+        rss_url: https://iopscience.iop.org/journal/rss/0004-637X
+        link_tag: link
+        abstract_tag: summary
+        slack_channel_id:
