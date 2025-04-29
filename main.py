@@ -1,17 +1,3 @@
-"""
-paper_slack_bots — RSS / arXiv ▶ Slack 投稿スクリプト
-ScienceDirect など “<description> にしか日付が無い” RSS に対応した改訂版
-(2025-04-29)
-
-主な変更点
------------
-1. `import re` を追加
-2. RSS の日付取得を published_parsed → updated_parsed → description
-   （Publication date: / Available online:）の順でフォールバック
-3. abstract の取り出しロジックをタグ名で 1 回だけ決定
-4. ScienceDirect 用に description の軽い HTML 剥ぎを実装
-"""
-
 from __future__ import annotations
 
 # ── 標準ライブラリ ─────────────────────────────────────
